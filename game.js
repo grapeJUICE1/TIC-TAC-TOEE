@@ -121,15 +121,30 @@ class UI {
 
 const ui = new UI()
 
-
-document.querySelector('.click').addEventListener('click', (evt) => {
-    const btn = document.querySelector('.game')
-    btn.classList.remove('click')
+document.querySelector('.game').addEventListener('click', (evt) => {
     evt.preventDefault()
     ui.move(evt.target)
-
-    btn.classList.add('click')
 })
+
+
+let i = true;
+
+while (i == true){
+const choice = prompt('Would you chose O or X')
+if (choice == 'O'){
+  ui.player = 'O'
+  ui.comp = 'X'
+  i=false
+}
+else if (choice == 'X'){
+  ui.player = 'X'
+  ui.comp='O'
+  i = false
+}
+else{
+  alert('Wrong input')
+}
+}
 
 
 
