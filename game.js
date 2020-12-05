@@ -58,7 +58,24 @@ class UI {
             }
         }
     }
-    reset() {
+    reset() {    
+        let i = true;
+        while (i == true){
+        const choice = prompt('Would you chose O or X')
+        if (choice == 'O'){
+          this.player = 'O'
+          this.comp = 'X'
+          i=false
+        }
+        else if (choice == 'X'){
+          this.player = 'X'
+          this.comp='O'
+          i = false
+        }
+        else{
+          alert('Wrong input')
+        }
+        }
         for (const prp in this) {
             if (this[prp].dataset) {
                 this[prp].dataset.val = ' '
@@ -126,22 +143,4 @@ document.querySelector('.game').addEventListener('click', (evt) => {
     ui.move(evt.target)
 })
 
-
-let i = true;
-
-while (i == true){
-const choice = prompt('Would you chose O or X')
-if (choice == 'O'){
-  ui.player = 'O'
-  ui.comp = 'X'
-  i=false
-}
-else if (choice == 'X'){
-  ui.player = 'X'
-  ui.comp='O'
-  i = false
-}
-else{
-  alert('Wrong input')
-}
-}
+ui.reset();
